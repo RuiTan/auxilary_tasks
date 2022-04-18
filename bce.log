@@ -1,0 +1,23 @@
+nohup: ignoring input
+True
+Namespace(batch_size=32, checkpoint_root='checkpoints', data_name='LEVIR', dataset='CDDataset', gpu_ids=[6], img_size=256, loss='bce', lr=0.01, lr_decay_iters=100, lr_policy='linear', max_epochs=1001, n_class=2, net_G='base_transformer_pos_s4_dd8_dedim8', num_workers=4, optimizer='sgd', output_sigmoid='False', project_name='CD_bceloss_base_transformer_pos_s4_dd8_dedim8_LEVIR_b32_lr0.01_train_val_300_linear_sigFalse', split='train', split_val='val')
+[6]
+initialize network with normal
+cuda:6
+================ (Mon Nov 29 12:07:25 2021) ================
+gpu_ids: [6] project_name: CD_bceloss_base_transformer_pos_s4_dd8_dedim8_LEVIR_b32_lr0.01_train_val_300_linear_sigFalse checkpoint_root: checkpoints num_workers: 4 dataset: CDDataset data_name: LEVIR batch_size: 32 split: train split_val: val img_size: 256 n_class: 2 output_sigmoid: False net_G: base_transformer_pos_s4_dd8_dedim8 loss: bce optimizer: sgd lr: 0.01 max_epochs: 1001 lr_policy: linear lr_decay_iters: 100 checkpoint_dir: checkpoints/CD_bceloss_base_transformer_pos_s4_dd8_dedim8_LEVIR_b32_lr0.01_train_val_300_linear_sigFalse vis_dir: vis/CD_bceloss_base_transformer_pos_s4_dd8_dedim8_LEVIR_b32_lr0.01_train_val_300_linear_sigFalse training from scratch...
+lr: 0.0100000
+Traceback (most recent call last):
+  File "main_cd.py", line 79, in <module>
+    train(args)
+  File "main_cd.py", line 15, in train
+    model.train_models()
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/trainer.py", line 273, in train_models
+    self._backward_G()
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/trainer.py", line 251, in _backward_G
+    self.G_loss = self._pxl_loss(self.G_pred, gt, self.device, weight=self.weight)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/losses.py", line 20, in cross_entropy
+    ignore_index=ignore_index, reduction=reduction)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/torch/nn/functional.py", line 2846, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index, label_smoothing)
+TypeError: cross_entropy_loss(): argument 'weight' (position 3) must be Tensor, not list

@@ -1,0 +1,29 @@
+initialize network with normal
+cuda:6
+================ (Mon Apr 18 08:57:35 2022) ================
+gpu_ids: [6] project_name: auxilary_model_kmcuda_lam0.5_418 checkpoint_root: checkpoints num_workers: 4 dataset: CDDataset data_name: LEVIR batch_size: 16 split: train split_val: val img_size: 256 n_class: 2 output_sigmoid: False net_G: base_transformer_pos_s4_dd8_dedim8_outsigmoid loss: ce_aux optimizer: sgd lr: 0.005 max_epochs: 300 lr_policy: linear lr_decay_iters: 100 checkpoint_dir: checkpoints/auxilary_model_kmcuda_lam0.5_418 vis_dir: /archive/hot8/cd_data/BIT/vis/auxilary_model_kmcuda_lam0.5_418 training from scratch...
+lr: 0.0050000
+Is_training: True. [0,299][1,28], imps: 72.60, est: 8.23h, G_loss: 0.83280, running_mf1: 0.41056
+Is_training: True. Epoch 0 / 299, epoch_mF1= 0.50410
+acc: 0.91497 miou: 0.47092 mf1: 0.50410 iou_0: 0.91476 iou_1: 0.02707 F1_0: 0.95549 F1_1: 0.05272 precision_0: 0.95374 precision_1: 0.05485 recall_0: 0.95724 recall_1: 0.05074
+Begin evaluation...
+Is_training: False. [0,299][1,4], imps: 12.01, est: 49.71h, G_loss: 0.23712, running_mf1: 0.49248
+Is_training: False. Epoch 0 / 299, epoch_mF1= 0.48928
+acc: 0.95803 miou: 0.47902 mf1: 0.48928 iou_0: 0.95803 iou_1: 0.00000 F1_0: 0.97857 F1_1: 0.00000 precision_0: 0.95803 precision_1: 0.00000 recall_0: 1.00000 recall_1: 0.00000
+Lastest model updated. Epoch_acc=0.4893, Historical_best_acc=0.0000 (at epoch 0)
+**********Best model updated!
+lr: 0.0049834
+Traceback (most recent call last):
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/main_cd.py", line 87, in <module>
+    train(args)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/main_cd.py", line 16, in train
+    model.train_models()
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/trainer.py", line 283, in train_models
+    self._backward_G()
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/trainer.py", line 259, in _backward_G
+    self.G_loss = self._pxl_loss(self.G_pred, gt, self.device, weight=self.weight)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/losses.py", line 33, in cross_entropy_with_auxilary
+    aux = auxilary_loss(input, target, device)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/losses.py", line 44, in auxilary_loss
+    _, esitimator = kmeans_cuda(input_.cpu().detach().numpy(), 2, verbosity=0, seed=3)
+KeyboardInterrupt

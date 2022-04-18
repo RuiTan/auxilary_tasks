@@ -1,0 +1,9 @@
+.git/
+__pycache__/
+checkpoints/
+images/
+logs/
+metrics/
+samples/
+vis/
+*.out

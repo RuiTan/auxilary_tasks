@@ -1,0 +1,18 @@
+{
+    "os": "Linux-4.15.0-175-generic-x86_64-with-debian-buster-sid",
+    "python": "3.6.13",
+    "heartbeatAt": "2022-04-18T09:22:55.954836",
+    "startedAt": "2022-04-18T09:22:53.216685",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 7,
+    "cpu_count": 64,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/main_cd.py",
+    "codePath": "main_cd.py",
+    "host": "gpu04.corp.sse.tongji.edu.cn",
+    "username": "tanrui@corp.sse.tongji.edu.cn",
+    "executable": "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/bin/python"
+}

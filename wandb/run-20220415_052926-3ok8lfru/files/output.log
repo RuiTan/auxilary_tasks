@@ -1,0 +1,12 @@
+initialize network with normal
+cuda:6
+================ (Fri Apr 15 05:29:39 2022) ================
+gpu_ids: [6] project_name: auxilary_model_kmcuda_lam0.5_415 checkpoint_root: checkpoints num_workers: 4 dataset: CDDataset data_name: LEVIR batch_size: 16 split: train split_val: val img_size: 256 n_class: 2 output_sigmoid: False net_G: base_transformer_pos_s4_dd8_dedim8_outsigmoid loss: ce_aux optimizer: sgd lr: 0.005 max_epochs: 300 lr_policy: linear lr_decay_iters: 100 checkpoint_dir: checkpoints/auxilary_model_kmcuda_lam0.5_415 vis_dir: /archive/hot8/cd_data/BIT/vis/auxilary_model_kmcuda_lam0.5_415
+Traceback (most recent call last):
+  File "main_cd.py", line 89, in <module>
+    train(args)
+  File "main_cd.py", line 17, in train
+    wandb.watch(model)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/wandb/sdk/wandb_watch.py", line 76, in watch
+    + str(type(model))
+ValueError: Expected a pytorch model (torch.nn.Module). Received <class 'models.trainer.CDTrainer'>

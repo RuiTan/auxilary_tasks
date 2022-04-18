@@ -1,0 +1,22 @@
+Downloading: "https://download.pytorch.org/models/resnet34-333f7ec4.pth" to /home/tanrui@corp.sse.tongji.edu.cn/.cache/torch/hub/checkpoints/resnet34-333f7ec4.pth
+
+
+
+100%|██████████████████████████████████████| 83.3M/83.3M [00:04<00:00, 18.2MB/s]
+initialize network with normal
+cuda:0
+================ (Mon Apr 18 10:25:17 2022) ================
+gpu_ids: [0] project_name: 418_unet_aux0.5 checkpoint_root: checkpoints num_workers: 4 dataset: CDDataset data_name: LEVIR batch_size: 16 split: train split_val: val img_size: 256 n_class: 2 output_sigmoid: False net_G: unet loss: ce_aux optimizer: sgd lr: 0.005 max_epochs: 300 lr_policy: linear lr_decay_iters: 100 checkpoint_dir: checkpoints/418_unet_aux0.5 vis_dir: /archive/hot8/cd_data/BIT/vis/418_unet_aux0.5 training from scratch...
+lr: 0.0050000
+Traceback (most recent call last):
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/main_cd.py", line 87, in <module>
+    train(args)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/main_cd.py", line 16, in train
+    model.train_models()
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/trainer.py", line 287, in train_models
+    self._forward_pass(batch)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/trainer.py", line 261, in _forward_pass
+    self.G_pred = self.net_G(img_in1, img_in2)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+TypeError: forward() takes 2 positional arguments but 3 were given

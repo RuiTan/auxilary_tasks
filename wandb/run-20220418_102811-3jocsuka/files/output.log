@@ -1,0 +1,48 @@
+initialize network with normal
+cuda:0
+================ (Mon Apr 18 10:28:21 2022) ================
+gpu_ids: [0] project_name: 418_unet_aux0.5 checkpoint_root: checkpoints num_workers: 4 dataset: CDDataset data_name: LEVIR batch_size: 16 split: train split_val: val img_size: 256 n_class: 2 output_sigmoid: False net_G: unet loss: ce_aux optimizer: sgd lr: 0.005 max_epochs: 300 lr_policy: linear lr_decay_iters: 100 checkpoint_dir: checkpoints/418_unet_aux0.5 vis_dir: /archive/hot8/cd_data/BIT/vis/418_unet_aux0.5 training from scratch...
+lr: 0.0050000
+Is_training: True. [0,299][1,28], imps: 74.37, est: 8.03h, G_loss: 0.71015, running_mf1: 0.36600
+Is_training: True. Epoch 0 / 299, epoch_mF1= 0.49736
+acc: 0.90563 miou: 0.46405 mf1: 0.49736 iou_0: 0.90542 iou_1: 0.02268 F1_0: 0.95036 F1_1: 0.04436 precision_0: 0.95321 precision_1: 0.04194 recall_0: 0.94753 recall_1: 0.04706
+Begin evaluation...
+Is_training: False. [0,299][1,4], imps: 9.01, est: 66.26h, G_loss: 0.10509, running_mf1: 0.48799
+Is_training: False. Epoch 0 / 299, epoch_mF1= 0.48928
+acc: 0.95803 miou: 0.47902 mf1: 0.48928 iou_0: 0.95803 iou_1: 0.00000 F1_0: 0.97857 F1_1: 0.00000 precision_0: 0.95803 precision_1: 0.00000 recall_0: 1.00000 recall_1: 0.00000
+Lastest model updated. Epoch_acc=0.4893, Historical_best_acc=0.0000 (at epoch 0)
+**********Best model updated!
+lr: 0.0049834
+Is_training: True. [1,299][1,28], imps: 119.24, est: 4.99h, G_loss: 0.16871, running_mf1: 0.48841
+Is_training: True. Epoch 1 / 299, epoch_mF1= 0.48819
+acc: 0.95384 miou: 0.47692 mf1: 0.48819 iou_0: 0.95384 iou_1: 0.00000 F1_0: 0.97638 F1_1: 0.00000 precision_0: 0.95384 precision_1: 0.00000 recall_0: 1.00000 recall_1: 0.00000
+Begin evaluation...
+Is_training: False. [1,299][1,4], imps: 69.28, est: 8.59h, G_loss: 0.14377, running_mf1: 0.48557
+Is_training: False. Epoch 1 / 299, epoch_mF1= 0.48928
+acc: 0.95803 miou: 0.47902 mf1: 0.48928 iou_0: 0.95803 iou_1: 0.00000 F1_0: 0.97857 F1_1: 0.00000 precision_0: 0.95803 precision_1: 0.00000 recall_0: 1.00000 recall_1: 0.00000
+Lastest model updated. Epoch_acc=0.4893, Historical_best_acc=0.4893 (at epoch 0)
+lr: 0.0049668
+Is_training: True. [2,299][1,28], imps: 125.69, est: 4.72h, G_loss: 0.16114, running_mf1: 0.48296
+Is_training: True. Epoch 2 / 299, epoch_mF1= 0.48821
+acc: 0.95391 miou: 0.47696 mf1: 0.48821 iou_0: 0.95391 iou_1: 0.00000 F1_0: 0.97641 F1_1: 0.00000 precision_0: 0.95391 precision_1: 0.00000 recall_0: 1.00000 recall_1: 0.00000
+Begin evaluation...
+Is_training: False. [2,299][1,4], imps: 88.16, est: 6.73h, G_loss: 0.12169, running_mf1: 0.48878
+Is_training: False. Epoch 2 / 299, epoch_mF1= 0.48928
+acc: 0.95803 miou: 0.47902 mf1: 0.48928 iou_0: 0.95803 iou_1: 0.00000 F1_0: 0.97857 F1_1: 0.00000 precision_0: 0.95803 precision_1: 0.00000 recall_0: 1.00000 recall_1: 0.00000
+Lastest model updated. Epoch_acc=0.4893, Historical_best_acc=0.4893 (at epoch 0)
+lr: 0.0049502
+Is_training: True. [3,299][1,28], imps: 125.92, est: 4.70h, G_loss: 0.11732, running_mf1: 0.48784
+Traceback (most recent call last):
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/main_cd.py", line 87, in <module>
+    train(args)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/main_cd.py", line 16, in train
+    model.train_models()
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/trainer.py", line 292, in train_models
+    self._backward_G()
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/trainer.py", line 268, in _backward_G
+    self.G_loss = self._pxl_loss(self.G_pred, gt, self.device, weight=self.weight)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/losses.py", line 35, in cross_entropy_with_auxilary
+    aux = auxilary_loss(input, target, device)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/losses.py", line 47, in auxilary_loss
+    _, estimator = kmeans_cuda(input_.cpu().detach().numpy(), 2, verbosity=0, seed=3)
+KeyboardInterrupt

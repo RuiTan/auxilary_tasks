@@ -1,0 +1,5 @@
+initialize network with normal
+cuda:6
+================ (Mon Apr 18 10:42:27 2022) ================
+gpu_ids: [6] project_name: 418_BITNoSig_aux0_mean loss: ce net_G: base_transformer_pos_s4_dd8_dedim8 checkpoint_root: checkpoints num_workers: 4 dataset: CDDataset data_name: LEVIR batch_size: 16 split: train split_val: val img_size: 256 n_class: 2 output_sigmoid: False optimizer: sgd lr: 0.005 max_epochs: 300 lr_policy: linear lr_decay_iters: 100 checkpoint_dir: checkpoints/418_BITNoSig_aux0_mean vis_dir: /archive/hot8/cd_data/BIT/vis/418_BITNoSig_aux0_mean training from scratch...
+lr: 0.0050000

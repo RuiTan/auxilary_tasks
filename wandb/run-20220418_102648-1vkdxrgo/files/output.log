@@ -1,0 +1,37 @@
+initialize network with normal
+cuda:0
+================ (Mon Apr 18 10:26:57 2022) ================
+gpu_ids: [0] project_name: 418_unet_aux0.5 checkpoint_root: checkpoints num_workers: 4 dataset: CDDataset data_name: LEVIR batch_size: 16 split: train split_val: val img_size: 256 n_class: 2 output_sigmoid: False net_G: unet loss: ce_aux optimizer: sgd lr: 0.005 max_epochs: 300 lr_policy: linear lr_decay_iters: 100 checkpoint_dir: checkpoints/418_unet_aux0.5 vis_dir: /archive/hot8/cd_data/BIT/vis/418_unet_aux0.5 training from scratch...
+lr: 0.0050000
+Traceback (most recent call last):
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/main_cd.py", line 87, in <module>
+    train(args)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/main_cd.py", line 16, in train
+    model.train_models()
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/trainer.py", line 289, in train_models
+    self._forward_pass(batch)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/CD_algs/BIT/models/trainer.py", line 259, in _forward_pass
+    self.G_pred = self.net_G(img)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/segmentation_models_pytorch/base/model.py", line 15, in forward
+    features = self.encoder(x)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/segmentation_models_pytorch/encoders/resnet.py", line 62, in forward
+    x = stages[i](x)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 446, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/tanrui@corp.sse.tongji.edu.cn/.conda/envs/tanrui/lib/python3.6/site-packages/torch/nn/modules/conv.py", line 443, in _conv_forward
+    self.padding, self.dilation, self.groups)
+TypeError: conv2d() received an invalid combination of arguments - got (numpy.ndarray, Parameter, NoneType, tuple, tuple, tuple, int), but expected one of:
+ * (Tensor input, Tensor weight, Tensor bias, tuple of ints stride, tuple of ints padding, tuple of ints dilation, int groups)
+      didn't match because some of the arguments have invalid types: ([31mnumpy.ndarray[39m, [31mParameter[39m, [31mNoneType[39m, [31mtuple[39m, [31mtuple[39m, [31mtuple[39m, [32mint[39m)
+ * (Tensor input, Tensor weight, Tensor bias, tuple of ints stride, str padding, tuple of ints dilation, int groups)
+      didn't match because some of the arguments have invalid types: ([31mnumpy.ndarray[39m, [31mParameter[39m, [31mNoneType[39m, [31mtuple[39m, [31mtuple[39m, [31mtuple[39m, [32mint[39m)
